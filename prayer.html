@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Sunday worship | Crossroad Online</title>
+    <title>Prayer | Crossroad Online</title>
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -35,45 +35,55 @@
             <h1 class="f2 f1-l b di lh-title mb3 white mw6 bg-primary">Crossroad Online</h1>
           </div>
           <div class="mw7 relative bg-fix-primary">
-            <p id="service_date" class="b f4 di lh-title mb3 white mw6 bg-primary">
-              Sunday worship
-            </p>
+            <p class="b f4 di lh-title mb3 white mw6 bg-primary">Prayer resources</p>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="bg-grey-1 pv4">
-      <div class="flex-l mhn1-l ph3 center mw7">
-        <h2 class="f2 b lh-title mb2 w-40-l">Welcome!</h2>
-        <p class="w-60-l mb0">
-          Welcome to our online service for this week. We pray that you&#39;ll be encouraged as you
-          join us to worship our faithful God.
+    <div class="ph3 bg-off-white">
+      <div class="center mw6 pv3">
+        <h3 class="f3 b lh-title mb2 primary">Ask for prayer</h3>
+        <p class="f6 mw-100 i">
+          We&#39;d love to pray for you and your family. Simply fill out this form with your prayer
+          request and click &#39;Send&#39; when you&#39;re done. If you would like to talk to
+          someone from Crossroad, please enter an email address or phone number in the box below,
+          but this is completely optional.
         </p>
-      </div>
-    </div>
-
-    <div class="bg-off-white pv4">
-      <div class="ph3 mw7 center">
-        <div class="flex-ns">
-          <div style="width: 100%">
-            <div>
-              <a id="video_link" href="">
-                <img id="video_thumb" src="/img/stream.jpg" />
-              </a>
-            </div>
-          </div>
-        </div>
-        <div style="width: 100%; text-align: center">
-          <a href="/prayer.html">
-            <input
-              class="bg-primary white b f4 pv3 ph3"
-              type="button"
-              style="cursor: pointer"
-              value="Ask for prayer"
-            />
-          </a>
-        </div>
+        <form
+          name="prayer-request"
+          action="https://docs.google.com/forms/u/2/d/e/1FAIpQLScBzP0MwN9wAF38lm0pVwTgW4WkpvJFxTJMHv5h0Ju7Qxyqhw/formResponse"
+        >
+          <input
+            name="entry.122909103"
+            class="w-100 mb2 f6"
+            id="name_input"
+            type="text"
+            placeholder="Your name"
+            required
+          />
+          <input
+            name="entry.1499548866"
+            class="w-100 mb2 f6"
+            id="contact_input"
+            type="text"
+            placeholder="Please email/phone me using these details (optional)"
+          />
+          <textarea
+            name="entry.977477598"
+            class="w-100 mb2 f6"
+            id="request_textarea"
+            type="text"
+            placeholder="Your prayer request"
+            required
+          ></textarea>
+          <input
+            class="bg-primary white b mb2"
+            style="cursor: pointer"
+            type="submit"
+            value="Send"
+          />
+        </form>
       </div>
     </div>
 
@@ -142,9 +152,5 @@
         </symbol>
       </svg>
     </div>
-
-    <script src="https://apis.google.com/js/api.js"></script>
-    <script src="livelink.js"></script>
-    <!-- <script src="https://apis.google.com/js/client.js?onload=init"></script> -->
   </body>
 </html>
