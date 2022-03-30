@@ -32,8 +32,12 @@ function init() {
         current_date = getDateFromTitle(current_title);
         // Get time difference in hours between now and midnight on the day of the stream
         time_delta = (current_date - now_ms) / 3600000;
-        current_thumb = recent_streams[i].snippet.thumbnails.maxres.url;
         i++;
+      }
+      if ("maxres" in recent_streams[i - 1].snippet.thumbnails) {
+        current_thumb = recent_streams[i - 1].snippet.thumbnails.maxres.url;
+      } else {
+        current_thumb = recent_streams[i - 1].snippet.thumbnails.high.url;
       }
       // Populate DOM elements
       document.getElementById("video_link").href =
