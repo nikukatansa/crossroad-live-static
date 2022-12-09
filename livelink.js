@@ -1,5 +1,8 @@
 let recent_streams;
 let current_stream;
+let current_prefix;
+let current_divider;
+let current_date;
 let current_thumb;
 const PREVIEW_HOURS = 48;
 
@@ -28,10 +31,12 @@ function init() {
       let i = 0;
       while (time_delta >= PREVIEW_HOURS && i < recent_streams.length) {
         current_stream = recent_streams[i].snippet.resourceId.videoId;
-        current_title = recent_streams[i].snippet.title.substring(16); // Remove "Sunday Stream - "
-        current_date = getDateFromTitle(current_title);
+        current_divider = recent_streams[i].snippet.title.indexOf("-");
+        current_date = recent_streams[i].snippet.title.substring(current_divider + 2); // Remove "Sunday Stream - "
+        current_prefix = recent_streams[i].snippet.title.substring(0, current_divider - 1);
+        parsed_date = getDateFromTitle(current_date);
         // Get time difference in hours between now and midnight on the day of the stream
-        time_delta = (current_date - now_ms) / 3600000;
+        time_delta = (parsed_date - now_ms) / 3600000;
         i++;
       }
       if ("maxres" in recent_streams[i - 1].snippet.thumbnails) {
@@ -43,7 +48,11 @@ function init() {
       document.getElementById("video_link").href =
         "https://www.youtube.com/watch?v=" + current_stream;
       document.getElementById("video_thumb").src = current_thumb;
-      document.getElementById("service_date").innerText = "Sunday worship - " + current_title;
+      if (current_prefix == "Sunday Stream") {
+        document.getElementById("service_date").innerText = "Sunday worship - " + current_date;
+      } else {
+        document.getElementById("service_date").innerText = current_prefix + " - " + current_date;
+      }
     });
   });
 }
